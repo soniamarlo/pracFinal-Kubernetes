@@ -1,6 +1,6 @@
 # **Práctica Final: Kubernetes**
 <a name="resources"></a>
-# Despliegue de aplicación Flask y MMySQL en Kubernetes con Helm
+# Despliegue de aplicación Flask y MySQL en Kubernetes con Helm
 
 Índice de contenidos:
 
