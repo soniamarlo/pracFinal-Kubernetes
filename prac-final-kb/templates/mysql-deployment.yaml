@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "flask-mysql-kb.fullname" . }}-mysql
+  labels:
+    {{- include "flask-mysql-kb.labels" . | nindent 4 }}
+spec:
+  serviceName: {{ include "flask-mysql-kb.fullname" . }}-mysql
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "flask-mysql-kb.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "flask-mysql-kb.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: mysql
+          image: "{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}"
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "flask-mysql-kb.fullname" . }}-mysql-secret
+                  key: MYSQL_ROOT_PASSWORD 
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "flask-mysql-kb.fullname" . }}-mysql-secret
+                  key: MYSQL_DATABASE
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "flask-mysql-kb.fullname" . }}-mysql-secret
+                  key: MYSQL_PASSWORD
+          ports:
+            - containerPort: 3306
+
+
+

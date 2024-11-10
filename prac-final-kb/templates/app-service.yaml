@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "flask-mysql-kb.fullname" . }}
+  labels:
+    {{- include "flask-mysql-kb.labels" . | nindent 4 }}
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "flask-mysql-kb.selectorLabels" . | nindent 4 }}
+
+

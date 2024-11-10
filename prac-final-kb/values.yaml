@@ -1,0 +1,72 @@
+app:
+  replicaCount: 2
+  image:
+    repository: soniamarlo/flask-app
+    tag: "latest"
+    pullPolicy: IfNotPresent
+
+  ingress:
+    enabled: true
+    host: flask-app.local
+    path: /
+  
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 5
+    targetCPUUtilizationPercentage: 70
+
+mysql:
+  image:
+    repository: mysql
+    tag: "8.0"
+    pullPolicy: IfNotPresent
+  persistence:
+    size: 1Gi
+
+app:
+  replicaCount: 2
+  image:
+    repository: soniamarlo/flask-app
+    tag: "latest"
+    pullPolicy: IfNotPresent
+
+  ingress:
+    enabled: true
+    host: flask-app.local
+    path: /
+
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 5
+    targetCPUUtilizationPercentage: 70
+
+mysql:
+  image:
+    repository: mysql
+    tag: "8.0"
+    pullPolicy: IfNotPresent
+  persistence:
+    size: 1Gi
+  auth:
+    rootPassword: ""
+    user: "root"
+    password: ""
+    database: "mydb"

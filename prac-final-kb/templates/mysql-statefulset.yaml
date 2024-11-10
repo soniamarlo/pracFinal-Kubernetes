@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "flask-mysql-kb.fullname" . }}-mysql
+  labels:
+    {{- include "flask-mysql-kb.labels" . | nindent 4 }}
+spec:
+  serviceName: {{ include "flask-mysql-kb.fullname" . }}-mysql
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "flask-mysql-kb.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "flask-mysql-kb.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: mysql
+          image: "{{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}"
+          imagePullPolicy: {{ .Values.mysql.image.pullPolicy }}
+          ports:
+            - containerPort: 3306
+          envFrom:
+            - secretRef:
+                name: {{ include "flask-mysql-kb.fullname" . }}-mysql-secret
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+            - name: init-sql
+              mountPath: /docker-entrypoint-initdb.d/
+      volumes:
+        - name: init-sql
+          configMap:
+            name: init-sql-configmap
+  volumeClaimTemplates:
+    - metadata:
+        name: mysql-persistent-storage
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: {{ .Values.mysql.persistence.size }}
