@@ -167,11 +167,11 @@ kubectl exec -it pod/flask-mysql-kb-flask-mysql-kb-mysql-0 -n flask-mysql-kb -- 
 Una vez dentro del pod, introduce la contraseña configurada (rootpassword) y luego puedes ejecutar comandos SQL como SHOW TABLES; o SELECT * FROM <tabla>;.
 
 
-<a name="paso-6-uso-aplicacion></a>
+<a name="paso-6-uso-aplicacion"></a>
 
 ### Paso 6: Uso de la aplicación
 
-<a name="anadir-datos-bbdd></a>
+<a name="anadir-datos-bbdd"></a>
 
 - **Añadir datos en la BBDD**
 
@@ -211,7 +211,7 @@ curl -X POST http://flask-app.local/historialAdopciones \
     "idPerro": 1
 }'
 ```
-<a name="uso></a>
+<a name="uso"></a>
 
 - **Uso de la aplicación**
 
