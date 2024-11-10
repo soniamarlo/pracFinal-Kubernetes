@@ -278,7 +278,7 @@ helm uninstall flask-mysql-kb --namespace flask-mysql-kb
 ```
 Esto eliminará el namespace flask-mysql-kb y todos los recursos asociados.
 
-<a name="advertencias></a>
+<a name="advertencias"></a>
 
 ## Advertencias importantes
 
