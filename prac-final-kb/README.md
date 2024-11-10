@@ -61,31 +61,31 @@ La estructura del proyecto es la siguiente:
 prac-final-kb/
 
 ├── templates/
-│   ├── app-configmap.yaml          # Configuración de variables de entorno para la aplicación
+│   ├── app-configmap.yaml                    # Configuración de variables de entorno para la aplicación
 
-│   ├── app-deployment.yaml         # Despliegue de la aplicación Flask 
+│   ├── app-deployment.yaml                   # Despliegue de la aplicación Flask 
 
-│   ├── app-hpa.yaml                # Configuración del autoescalado
+│   ├── app-hpa.yaml                          # Configuración del autoescalado
 
-│   ├── app-ingress.yaml            #  Ingress para exponer Flask al exterior
+│   ├── app-ingress.yaml                      #  Ingress para exponer Flask al exterior
 
-│   ├── app-secret.yaml            # Secretos para la aplicación Flask
+│   ├── app-secret.yaml                       # Secretos para la aplicación Flask
 
-│   ├── mysql-configmap.yaml        # Configuración de variables de entorno para MySQL
+│   ├── mysql-configmap.yaml                  # Configuración de variables de entorno para MySQL
 
-│   ├── mysql-container-service.yaml             # Define el Servicio interno para MySQL
+│   ├── mysql-container-service.yaml          # Define el Servicio interno para MySQL
 
-│   ├── mysql-service.yaml            # Servicios para MySQL
+│   ├── mysql-service.yaml                    # Servicios para MySQL
 
-│   └── mysql-statefulset.yaml        # StatefulSet para MySQL
+│   └── mysql-statefulset.yaml                # StatefulSet para MySQL
 
-│   └── mysql-deployment.yaml        # Despliegue de MySQL
+│   └── mysql-deployment.yaml                 # Despliegue de MySQL
 
-│   └── mysql-secret.yaml        # Secretos para MySQL
+│   └── mysql-secret.yaml                     # Secretos para MySQL
 
-├── Chart.yaml                  # Archivo principal del chart de Helm
+├── Chart.yaml                                # Archivo principal del chart de Helm
 
-└── values.yaml                 # Configuraciones generales para el despliegue
+└── values.yaml                               # Configuraciones generales para el despliegue
 
 <a name="despliegue-de-la-aplicacion"></a>
 
