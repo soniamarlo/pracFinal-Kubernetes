@@ -37,7 +37,7 @@ La aplicación está configurada para soportar **persistencia de datos, alta dis
 
 - **Kubernetes** (con Minikube para el entorno local)
 - **Helm**(para gestionar el despliegue de los charts)
-- 
+
 <a name="configuracion"></a>
 
 ## **Configuración**
@@ -52,13 +52,13 @@ Las variables sensibles, como las contraseñas, se configuran mediante **Secrets
 - **DB_USER**: El nombre de usuario para conectarse a la base de datos.
 - **DB_PASSWORD**: La contraseña para el usuario de la base de datos.
 - **DB_NAME**: El nombre de la base de datos.
-- 
+
 <a name="estructura-del-proyecto"></a>
 
 ## **Estructura del Proyecto**
 La estructura del proyecto es la siguiente:
 
-PRACTICA-NGINX-MARIADB/
+prac-final-kb/
 
 ├── templates/
 │   ├── app-configmap.yaml          # Configuración de variables de entorno para la aplicación
